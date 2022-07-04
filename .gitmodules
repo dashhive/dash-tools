@@ -1,0 +1,9 @@
+[submodule "crowdnode"]
+	path = crowdnode
+	url = https://github.com/dashhive/crowdnode.js
+[submodule "digitalcash"]
+	path = digitalcash
+	url = https://github.com/dashhive/digitalcash.js.git
+[submodule "dashsight"]
+	path = dashsight
+	url = https://github.com/dashhive/dashsight.js.git
