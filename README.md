@@ -1,4 +1,4 @@
-# dash-utils
+# [dash-tools](https://github.com/dashhive/dash-tools)
 
 Meta repo for various Dash tools
 
@@ -7,12 +7,14 @@ Meta repo for various Dash tools
 Clone all the code in at once:
 
 ```bash
-git clone --recursive https://github.com/dashhive/dash-utils
+git clone --recursive https://github.com/dashhive/dash-tools
 ```
 
-For the convenience of the casual git user, these submodules use (unauthenticated) https.
+For the convenience of the casual git user, these submodules use
+(unauthenticated) https.
 
-If you'd like to develop and contribute, update your git config to automatically substitute the proper ssh url automatically:
+If you'd like to develop and contribute, update your git config to automatically
+substitute the proper ssh url automatically:
 
 ```bash
 git config --global \
