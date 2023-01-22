@@ -7,3 +7,6 @@
 [submodule "dashsight"]
 	path = dashsight
 	url = https://github.com/dashhive/dashsight.js.git
+[submodule "dashphrase.js"]
+	path = dashphrase.js
+	url = https://github.com/dashhive/dashphrase.js.git

@@ -2,6 +2,11 @@
 
 Meta repo for various Dash tools
 
+- [dashphrase.js][dashphrase-js] - Generate Dash HD Wallet Passphrases & Seeds
+  (BIP-39 compatible)
+
+[dashphrase-js]: https://github.com/dashhive/dashphrase.js
+
 # Developing
 
 Clone all the code in at once:
