@@ -143,6 +143,7 @@ When writing examples for Dash, these are the values that should be used:
     `0x0488b21e` (76067358), `xpub` as Base58 mainnet (same for all coins) \
     `0x04358394` (70615956), `tprv` as Base58 testnet (different for some) \
     `0x043587CF` (70617039), `tpub` as Base58 testnet (different for some)
+    `0x03` (3), `0x03000000` (LE) `version` for Dash Blockchain Transactions
 - Mnemonic Passphrase
   - The the list of 12 or 24 words. \
     Referred to by BIP-0039 as both terms "mnemonic" and "password".
