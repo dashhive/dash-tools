@@ -10,3 +10,6 @@
 [submodule "dashphrase.js"]
 	path = dashphrase.js
 	url = https://github.com/dashhive/dashphrase.js.git
+[submodule "dashkeys.js"]
+	path = dashkeys.js
+	url = https://github.com/dashhive/dashkeys.js.git
