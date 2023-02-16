@@ -1,11 +1,26 @@
-# [dash-tools](https://github.com/dashhive/dash-tools)
+# [Dash Tools SDK](https://github.com/dashhive/dash-tools)
 
-Meta repo for various Dash tools
+Meta repo for various Dash Tools
 
-- [dashphrase.js][dashphrase-js] - Generate Dash HD Wallet Passphrases & Seeds
+## Dash SDK Core
+
+Production-Ready Reference Implementations. \
+Building blocks for all future "DASH Core" and "DASH Platform" tools.
+
+- [@dashincubator/secp256k1.js][secp256k1-js] - A Browser-Friendly fork of
+  `@noble/secp256k1.js` \
+  (for Private & Public Keys and X Key Tweaking)
+- [dashkeys.js][dashkeys-js] - WIF & Addr, and other Key conversions \
+  (Base-X, Base58, Base58Check, & RIPEMD160)
+- [dashphrase.js][dashphrase-js] - Generate Dash HD Wallet Passphrases & Seeds \
   (BIP-39 compatible)
+- [dashhd.js][dashhd-js] - HD Wallet derivations and conversions \
+  (HD Wallet, Account, X Keys - XPrv & XPub, and HD Addresses)
 
-[dashphrase-js]: https://github.com/dashhive/dashphrase.js
+[secp256k1-js]: https://github.com/dashhive/Secp256k1.js
+[dashkeys-js]: https://github.com/dashhive/DashKeys.js
+[dashphrase-js]: https://github.com/dashhive/DashPhrase.js
+[dashhd-js]: https://github.com/dashhive/DashHD.js
 
 ## Developing
 
@@ -95,10 +110,20 @@ When writing examples for Dash, these are the values that should be used:
   - **Misnomer**. This is the "_mnemonic_" list of words (passphrase)
 - BIP-0039 Passphrase
   - **Misnomer**. This is the secret part of the PBKDF2 salt.
+- Coin
+  - See UTXO.
 - Cold Storage / Cold Wallet
   - A mnemonic passphrase that you keep offline. \
     Perhaps written down on paper in a safe. \
     Perhaps on a device (e.g. Trezor).
+- Compression Flag
+  - Also: Compressed Byte, Recovery Bit, Quadrant Byte \
+    Public Keys have X and Y values (32-bytes each). \
+    A "compressed" key stores the X value and a "recover" bit. \
+    Since both possible Y values can be generated from an X, \
+    the "recovery bit" can tell us _which_ to use: \
+    0x02 if Y is even. \
+    0x03 if Y is odd.
 - Input Entropy
   - The initial cryptographically random bytes used for generating a BIP-0039
     "mnemonic".
@@ -131,7 +156,9 @@ When writing examples for Dash, these are the values that should be used:
     an XPrv / XPub key \
     an XPrv / XPub generated from a "_seed_" and "_HD Account_" HD Path \
     the Passphrase used
-- Magic Byte
+- Lock Script, lockscript, subscript
+  - A series of _OP Codes_ and data that define how to spend coins (_UTXOs_).
+- Magic Bytes
   - A sequence of arbitrarily chosen bits used to identify or categorize. \
     (to distinguish different coins, protocols, mainnet vs testnet, etc) \
     `5'/` for Dash HD Path coin type \
@@ -142,7 +169,7 @@ When writing examples for Dash, these are the values that should be used:
     `0x0488ade4` (76066276), `xprv` as Base58 mainnet (same for all coins) \
     `0x0488b21e` (76067358), `xpub` as Base58 mainnet (same for all coins) \
     `0x04358394` (70615956), `tprv` as Base58 testnet (different for some) \
-    `0x043587CF` (70617039), `tpub` as Base58 testnet (different for some)
+    `0x043587CF` (70617039), `tpub` as Base58 testnet (different for some) \
     `0x03` (3), `0x03000000` (LE) `version` for Dash Blockchain Transactions
 - Mnemonic Passphrase
   - The the list of 12 or 24 words. \
@@ -158,6 +185,8 @@ When writing examples for Dash, these are the values that should be used:
 - Payment Address, PayAddr
   - A Base58Check-encoded PubKeyHash. \
     In the format of `{version}{pubKeyHash}01{checksum}`
+- PayToPubKeyHash, p2pkh, Pay To Public Key Hash
+  - TODO
 - PBKDF2
   - A suite of "_Key Derivation_" algorithms, originally for authentication. \
     The "password" is the primary source of entropy (i.e. user's password). \
@@ -190,6 +219,8 @@ When writing examples for Dash, these are the values that should be used:
     RIPEMD160 does make "_lock scripts_" vulnerable to "birthday attacks". \
     Fortunately it's reasonably costly and can't target a specific key. \
     Regardless, we're stuck with it for now.
+- Recovery Bit
+  - See _Compression Flag_.
 - Seed
   - Entropy used to create an XPrv key, typically for with HD Wallet path. \
     (typically PBKDF2-derived from a _mnemonic passphrase_, as per BIP-0039)
@@ -202,6 +233,11 @@ When writing examples for Dash, these are the values that should be used:
 - SHA-512, SHA512, (part of SHA-2)
   - A 64-byte (512-bit) hash. \
     Used as HMAC-SHA512 for PBKDF2 rounds.
+- UTXO
+  - Unspent Transaction Outputs ("coins") that have not been spent / unlocked. \
+    A _Lock Script_ that has not yet been unlocked. \
+    Transaction ID \
+    TODO
 - Wallet
   - **Ambiguous**. Due to old terminology and market usage, this means any of: \
     A private key or WIF \
