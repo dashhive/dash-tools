@@ -13,3 +13,9 @@
 [submodule "dashkeys.js"]
 	path = dashkeys.js
 	url = https://github.com/dashhive/dashkeys.js.git
+[submodule "dashhd.js"]
+	path = dashhd.js
+	url = https://github.com/dashhive/DashHD.js
+[submodule "secpk256k1.js"]
+	path = secpk256k1.js
+	url = https://github.com/dashhive/secp256k1.js
