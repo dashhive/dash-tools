@@ -65,6 +65,14 @@ When writing examples for Dash, these are the values that should be used:
 
 ## Glossary
 
+
+[bip-20]: https://github.com/bitcoin/bips/blob/master/bip-0020.mediawiki
+[bip-21]: https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki
+[bip-70]: https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki
+[bip-71]: https://github.com/bitcoin/bips/blob/master/bip-0071.mediawiki
+[bip-72]: https://github.com/bitcoin/bips/blob/master/bip-0072.mediawiki
+[json-payment-protocol]: https://bitpay.com/docs/payment-protocol
+
 - Base2048
   - A standard for encoding bytes (+ tiny checksum) as "_mnemonic_" words. \
     There are 2048, easy-to-spell, easy-to-speak words. \
@@ -90,6 +98,8 @@ When writing examples for Dash, these are the values that should be used:
   - A well-known algorithm for arbitrary bases. \
     Not compatible with standardized Base64, Base32, Hex etc. \
     (pretty much only used for Base58 / Base58Check)
+- BIP-0020, BIP-20, BIP20, BIP-0021, BIP-21, BIP21
+  - See _Payment URLs (single)_
 - BIP-0039, BIP-39, BIP39
   - A standard for generating HD wallet "seeds" and "cold wallets". \
     "_Input Entropy_" is used as a single source for multiple wallets and keys. \
@@ -110,6 +120,8 @@ When writing examples for Dash, these are the values that should be used:
   - **Misnomer**. This is the "_mnemonic_" list of words (passphrase)
 - BIP-0039 Passphrase
   - **Misnomer**. This is the secret part of the PBKDF2 salt.
+- BIP-0070, BIP-70, BIP70, BIP-0071, BIP-71, BIP71, BIP-0072, BIP-72, BIP72
+  - See _Payment URLs (merchant)_
 - Coin
   - See UTXO.
 - Cold Storage / Cold Wallet
@@ -185,6 +197,16 @@ When writing examples for Dash, these are the values that should be used:
 - Payment Address, PayAddr
   - A Base58Check-encoded PubKeyHash. \
     In the format of `{version}{pubKeyHash}01{checksum}`
+- Payment URLs (Single)
+  - `dash:<address>[?amount=<amount>][?label=<label>][?message=<message>]` \
+    See also [BIP 21][bip-21] (previously [BIP 20][bip-20])
+- Payment URL Protocol (Merchant)
+  - `dash:<address>?amount=<decimal>&r=<merchant-request-url>` \
+    `dash:XrZJJfEKRNobcuwWKTD3bDu8ou7XSWPbc9?amount=1.1&r=https://example.com?q%3Dxxxxxxxx` \
+    `dash:?r=<merchant-request-url>` \
+    `dash:?r=https://example.com?q%3Dxxxxxxxx` \
+    The payload is BIP-spec'd as binary, but bitpay introduced a JSON version.
+    See also [JSON Payment Protocol][json-payment-protocol], [BIP 72][bip-72] (includes [BIP 70][bip-70], [71][bip-71])
 - PayToPubKeyHash, p2pkh, Pay To Public Key Hash
   - TODO
 - PBKDF2
