@@ -16,11 +16,14 @@ Building blocks for all future "DASH Core" and "DASH Platform" tools.
   (BIP-39 compatible)
 - [dashhd.js][dashhd-js] - HD Wallet derivations and conversions \
   (HD Wallet, Account, X Keys - XPrv & XPub, and HD Addresses)
+- [dashtx.js][dashtx-js] - Create broadcast-ready Transactions 
+- [dashwallet.js][dashwallet-js] - Accounts, Contacts, Transactions
 
 [secp256k1-js]: https://github.com/dashhive/Secp256k1.js
 [dashkeys-js]: https://github.com/dashhive/DashKeys.js
 [dashphrase-js]: https://github.com/dashhive/DashPhrase.js
 [dashhd-js]: https://github.com/dashhive/DashHD.js
+[dashtx-js]: https://github.com/dashhive/DashTx.js
 
 ## Developing
 
